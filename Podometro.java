@@ -1,5 +1,4 @@
-﻿
-/**
+﻿/**
  * La clase modela un sencillo podómetro que registra información
  * acerca de los pasos, distancia, ..... que una persona
  * ha dado en una semana.
@@ -40,7 +39,7 @@ public class Podometro {
         this.longitudZancada = 0;
         this.totalPasosLaborables = 0;
         this.totalPasosDomingo = 0;
-        this.totalPasosSabado;
+        this.totalPasosSabado = 0;
 
     }
 
@@ -48,8 +47,8 @@ public class Podometro {
      * accesor para la marca
      *
      */
-    public getMarca() {
-
+    public String getMarca() {
+return marca;
     }
 
     /**
