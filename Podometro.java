@@ -1,4 +1,4 @@
-﻿/**
+/**
  * La clase modela un sencillo podómetro que registra información
  * acerca de los pasos, distancia, ..... que una persona
  * ha dado en una semana.
@@ -40,7 +40,10 @@ public class Podometro {
         this.totalPasosLaborables = 0;
         this.totalPasosDomingo = 0;
         this.totalPasosSabado = 0;
-
+        this.totalDistanciaSemana = 0;
+        this.totalDistanciaFinSemana = 0;
+        this.tiempo = 0;
+        this.caminatasNoche = 0;
     }
 
     /**
@@ -48,21 +51,31 @@ public class Podometro {
      *
      */
     public String getMarca() {
-return marca;
+        return marca;
     }
 
     /**
      * Simula la configuración del podómetro. Recibe como parámetros la altura y
      * el sexo de una persona y asigna estos valores a los atributos
-     * correspondiente. Asigna además el valor adecuado al atributo
+     * correspondientes. Asigna además el valor adecuado al atributo
      * longitudZancada
      *
      * (leer enunciado)
      *
      */
     public void configurar(int queAltura, char queSexo) {
+        this.altura = queAltura;
+        this.sexo = queSexo;
 
+        if (queSexo == 'H'){
+            this.longitudZancada = (int)Math.round(queAltura * RAZON_ZANCADA_HOMBBRE);
+        }else if(queSexo == 'M'){
+            this.longitudZancada = (int)Math.round(queAltura * RAZON_ZANCADA_MUJER);
+                }
+    
     }
+
+    
 
     /**
      * Recibe cuatro parámetros que supondremos correctos: pasos - el nº de
