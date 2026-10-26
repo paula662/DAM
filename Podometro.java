@@ -1,3 +1,4 @@
+
 /**
  * La clase modela un sencillo podómetro que registra información
  * acerca de los pasos, distancia, ..... que una persona
@@ -67,15 +68,13 @@ public class Podometro {
         this.altura = queAltura;
         this.sexo = queSexo;
 
-        if (queSexo == 'H'){
-            this.longitudZancada = (int)Math.round(queAltura * RAZON_ZANCADA_HOMBBRE);
-        }else if(queSexo == 'M'){
-            this.longitudZancada = (int)Math.round(queAltura * RAZON_ZANCADA_MUJER);
-                }
-    
-    }
+        if (queSexo == 'H') {
+            this.longitudZancada = (int) Math.round(queAltura * RAZON_ZANCADA_HOMBBRE);
+        } else if (queSexo == 'M') {
+            this.longitudZancada = (int) Math.round(queAltura * RAZON_ZANCADA_MUJER);
+        }
 
-    
+    }
 
     /**
      * Recibe cuatro parámetros que supondremos correctos: pasos - el nº de
@@ -89,16 +88,16 @@ public class Podometro {
      *
      * (leer enunciado del ejercicio)
      */
-    public void registrarCaminata(int pasos, int dia, int horaInicio,int horaFin) {
+    public void registrarCaminata(int pasos, int dia, int horaInicio, int horaFin) {
         switch (dia) {
             case 6:
-                totalPasosSabado =+ pasos;
+                totalPasosSabado = +pasos;
                 break;
             case 7:
-                totalPasosDomingo =+ pasos;
+                totalPasosDomingo = +pasos;
                 break;
             default:
-                totalPasosLaborables =+ pasos;
+                totalPasosLaborables = +pasos;
         }
 
         if (dia < 6) {
@@ -106,9 +105,9 @@ public class Podometro {
         } else if (dia == 6 || dia == 7) {
             totalDistanciaFinSemana += (pasos * longitudZancada) / 100000;
         }
-        
-        this.tiempo += ((horaFin / 100) * 60 + (horaFin % 100)) 
-        - ((horaInicio / 100) * 60 + (horaInicio % 100)); 
+
+        this.tiempo += ((horaFin / 100) * 60 + (horaFin % 100))
+                - ((horaInicio / 100) * 60 + (horaInicio % 100));
     }
 
     /**
@@ -119,7 +118,15 @@ public class Podometro {
      *
      */
     public void printConfiguracion() {
-
+        System.out.println("Configuración del podómetro");
+        System.out.println("**************************");
+        System.out.println("Altura: " + altura/100.0);
+        if(sexo == 'M'){
+            System.out.println("Sexo: Mujer");
+        }else{
+            System.out.println("Sexo: Hombre");
+        }
+        System.out.println("Longitud zancada: " + longitudZancada/100.0);
     }
 
     /**
