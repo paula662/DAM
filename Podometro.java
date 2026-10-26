@@ -89,9 +89,26 @@ public class Podometro {
      *
      * (leer enunciado del ejercicio)
      */
-    public void registrarCaminata(int pasos, int dia, int horaInicio,
-            int horaFin) {
+    public void registrarCaminata(int pasos, int dia, int horaInicio,int horaFin) {
+        switch (dia) {
+            case 6:
+                totalPasosSabado =+ pasos;
+                break;
+            case 7:
+                totalPasosDomingo =+ pasos;
+                break;
+            default:
+                totalPasosLaborables =+ pasos;
+        }
 
+        if (dia < 6) {
+            totalDistanciaSemana += (pasos * longitudZancada) / 100000;
+        } else if (dia == 6 || dia == 7) {
+            totalDistanciaFinSemana += (pasos * longitudZancada) / 100000;
+        }
+        
+        this.tiempo += ((horaFin / 100) * 60 + (horaFin % 100)) 
+        - ((horaInicio / 100) * 60 + (horaInicio % 100)); 
     }
 
     /**
