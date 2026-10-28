@@ -167,6 +167,11 @@ public class Podometro {
 
         String resultado = "";
 
+        if (mayor == 0) {
+            return null;
+            
+        }
+
         if (totalPasosLaborables == mayor) {
             resultado += "LABORABLES";
         }
