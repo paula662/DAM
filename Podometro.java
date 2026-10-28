@@ -158,15 +158,36 @@
             System.out.println("Día/s con más pasos caminados: ");
         }
 
-    
+        /**
+         * Calcula y devuelve un String que representa el nombre del día en el
+         * que se ha caminado más pasos - "SÁBADO" "DOMINGO" o "LABORABLES"
+         */
+        public String diaMayorNumeroPasos() {
 
-    /**
-     * Calcula y devuelve un String que representa el nombre del día en el que
-     * se ha caminado más pasos - "SÁBADO" "DOMINGO" o "LABORABLES"
-     */
-    public String diaMayorNumeroPasos() {
-        if(totalPasosLaborables > totalPasosDomingo ){
-            System.out.println();
+            int mayor = Math.max(totalPasosLaborables,
+                    Math.max(totalPasosSabado, totalPasosDomingo));
+
+            String resultado = "";
+
+            if (totalPasosLaborables == mayor) {
+                resultado += "LABORABLES";
+            }
+
+            if (totalPasosSabado == mayor) {
+                if (!resultado.isEmpty()) {
+                    resultado += " ";
+                }
+                resultado += "SÁBADO";
+            }
+
+            if (totalPasosDomingo == mayor) {
+                if (!resultado.isEmpty()) {
+                    resultado += " ";
+                }
+                resultado += "DOMINGO";
+            }
+
+            return resultado;
         }
     }
 
@@ -176,7 +197,5 @@
      *
      */
     public void reset() {
-
-    }
-      }
-
+    
+}
